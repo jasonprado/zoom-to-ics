@@ -39,7 +39,7 @@ def run(
 
   for user in user_list['users']:
     user_id = user['id']
-    meetings = json.loads(client.meeting.list(user_id=user_id, type='upcoming').content)['meetings']
+    meetings = json.loads(client.meeting.list(user_id=user_id, type='upcoming', page_size=300).content)['meetings']
     for meeting in meetings:
       if not meeting.get('start_time'):
         continue
